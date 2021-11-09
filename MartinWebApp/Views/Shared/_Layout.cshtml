@@ -1,0 +1,32 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div>
+        <header>
+            <h1>Martin Johansson</h1>
+            <nav>
+                <ul>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contacts">Contacts</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Projects">Projects</a></li>
+                </ul>
+            </nav>
+        </header>
+        @RenderBody()
+        <hr/>
+        <footer>
+            <p>&copy; @DateTime.Now.Day/@DateTime.Now.Month @DateTime.Now.Year Martin Johansson</p>
+        </footer>
+    </div>
+    
+</body>
+
+</html>
