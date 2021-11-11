@@ -1,0 +1,16 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "GuessingGame";
+}
+<h1>Guessing Game</h1>
+<form asp-controller="Guessing" asp-action="GuessingGame" method="post">
+    <label>Guess the number</label>
+    <input type="number" name="guess" />
+    <input type="submit" value="Guess" />
+</form>
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
