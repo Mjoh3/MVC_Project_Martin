@@ -15,7 +15,15 @@ namespace MartinWebApp.Controllers
         public IActionResult GuessingGame()
         {
             GuessingModel.SetRandomNumber();
-            HttpContext.Session.SetInt32("RandomNum", GuessingModel.GetCorrectNumber());            
+            GuessingModel.ResetTries();
+            if(HttpContext.Session.GetInt32("RandomNum") == null)
+            {
+                GuessingModel.highScore = 1000;
+            }
+            
+            HttpContext.Session.SetInt32("RandomNum", GuessingModel.GetCorrectNumber());
+            
+            HttpContext.Response.Cookies.Append("HighScore", GuessingModel.highScore.ToString());
             return View();
         }
         [HttpPost]
@@ -23,7 +31,29 @@ namespace MartinWebApp.Controllers
         {
             if (HttpContext.Session.GetInt32("RandomNum") != null)
             {
+                
+                GuessingModel.UpdateTries();
+                
+                
                 ViewBag.Message = GuessingModel.GuessResponseMessage(guess);
+                
+                if (GuessingModel.GetCorrectNumber() == guess)
+                {
+                    GuessingModel.UpdateHighScore();
+                    HttpContext.Response.Cookies.Append("HighScore", GuessingModel.highScore.ToString());
+                    GuessingModel.SetRandomNumber();                    
+                    HttpContext.Session.SetInt32("RandomNum", GuessingModel.GetCorrectNumber());
+                    GuessingModel.ResetTries();
+                }
+                if (HttpContext.Request.Cookies["HighScore"] != "1000")
+                {
+                    ViewBag.Cookiemessage = "High score: " + HttpContext.Request.Cookies["HighScore"];
+                }
+                else
+                {
+                    ViewBag.Cookiemessage = "High score: -";
+                }
+
             }
             else
             {
