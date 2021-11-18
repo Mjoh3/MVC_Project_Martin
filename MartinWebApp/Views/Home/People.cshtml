@@ -7,10 +7,7 @@
 }
 <h1>People</h1>
 
-@foreach (var item in MartinWebApp.Models.PeopleViewModel.peopleResult)
-{
-    <partial name="_partialPerson" model="item" />
-}
+
 <h2>Search People</h2>
 @using (Html.BeginForm("PeopleSearch", "Home", FormMethod.Post, new { id = "searchForm" }))
 {
@@ -64,3 +61,8 @@
 
     }
 </table>
+<h4>Partial view</h4>
+@foreach (var item in MartinWebApp.Models.PeopleViewModel.peopleResult)
+{
+    <partial name="_partialPerson" model="item" />
+}
