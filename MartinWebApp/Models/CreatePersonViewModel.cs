@@ -25,6 +25,22 @@ namespace MartinWebApp.Models
                 }
             }
         }
+        public static void DeletePerson(string name, string phonenumber, string city)
+        {
+            for(int i=0; i< PeopleViewModel.people.Count; i++)
+            {
+                if(PeopleViewModel.people[i].City==city && 
+                    PeopleViewModel.people[i].PhoneNumber == phonenumber && 
+                    PeopleViewModel.people[i].Name == name) 
+                { 
+                    PeopleViewModel.people.RemoveAt(i); 
+                    break; 
+                }
+                
+            }
+            
+            
+        }
 
     }
 }

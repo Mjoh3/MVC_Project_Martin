@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model MartinWebApp.Models.Person
+<div>
+    <p>
+        @Model.Name, @Model.PhoneNumber, @Model.City
+
+        @using (Html.BeginForm("PeopleDelete", "Home", FormMethod.Post, new { id = "deleteForm" }))
+        {
+            <input type="hidden" value=@Model.Name name="name" />
+            <input type="hidden" value=@Model.PhoneNumber name="phonenumber" />
+            <input type="hidden" value=@Model.City name="city" />
+            <input type="submit" value="Delete" />
+        }
+    </p>
+    
+</div>
