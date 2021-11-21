@@ -66,7 +66,48 @@ namespace MartinWebApp.Controllers
 
             return View("people",new PeopleViewModel());
         }
+        public IActionResult PeopleAjax()
+        {
 
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult getAllPersons()
+        {
+            CreatePersonViewModel.CreatePeopleResult(null, null, null);
+            Response.StatusCode = 200;
+            return PartialView("_getPersons");
+        }
+        [HttpPost]
+        public IActionResult GetPersonsByID(int id)
+        {
+            if (PeopleViewModel.IdExistInPeople(id))
+            {
+                
+                CreatePersonViewModel.CreateResultsByID(id);
+                Response.StatusCode = 200;
+                return PartialView("_getPersons");
+            }
+            else
+            {
+                return StatusCode(404);
+            }
+        }
+        [HttpPost]
+        public IActionResult DeletePersonsByID(int id)
+        {
+            if (PeopleViewModel.IdExistInPeople(id)){
+                CreatePersonViewModel.DeleteByID(id);
+                CreatePersonViewModel.CreatePeopleResult(null, null, null);
+                Response.StatusCode = 200;
+            }
+            else
+            {
+                Response.StatusCode = 404;
+            }
+            return PartialView("_getPersons");
+        }
 
 
     }

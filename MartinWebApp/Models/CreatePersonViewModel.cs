@@ -17,8 +17,8 @@ namespace MartinWebApp.Models
             PeopleViewModel.peopleResult.Clear();
             foreach (var p in PeopleViewModel.people)
             {
-                if((p.Name==name|| name==null) &&
-                    (p.PhoneNumber == phonenumber || phonenumber==null) &&
+                if ((p.Name == name || name == null) &&
+                    (p.PhoneNumber == phonenumber || phonenumber == null) &&
                     (p.City == city || city == null))
                 {
                     PeopleViewModel.peopleResult.Add(p);
@@ -27,19 +27,43 @@ namespace MartinWebApp.Models
         }
         public static void DeletePerson(string name, string phonenumber, string city)
         {
-            for(int i=0; i< PeopleViewModel.people.Count; i++)
+            for (int i = 0; i < PeopleViewModel.people.Count; i++)
             {
-                if(PeopleViewModel.people[i].City==city && 
-                    PeopleViewModel.people[i].PhoneNumber == phonenumber && 
-                    PeopleViewModel.people[i].Name == name) 
-                { 
-                    PeopleViewModel.people.RemoveAt(i); 
-                    break; 
+                if (PeopleViewModel.people[i].City == city &&
+                    PeopleViewModel.people[i].PhoneNumber == phonenumber &&
+                    PeopleViewModel.people[i].Name == name)
+                {
+                    PeopleViewModel.people.RemoveAt(i);
+                    break;
                 }
-                
+
             }
-            
-            
+        }
+        public static void CreateResultsByID(int id)
+        {
+            PeopleViewModel.peopleResult.Clear();
+            foreach (var p in PeopleViewModel.people)
+            {
+                if (p.GetID() == id)
+                {
+                    PeopleViewModel.peopleResult.Add(p);
+                    break;
+                }
+            }
+        
+        }
+        public static void DeleteByID(int id)
+        {
+            PeopleViewModel.peopleResult.Clear();
+            foreach (var p in PeopleViewModel.people)
+            {
+                if (p.GetID() == id)
+                {
+                    PeopleViewModel.people.Remove(p);
+                    break;
+                }
+            }
+
         }
 
     }

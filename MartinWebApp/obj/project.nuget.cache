@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "FUbDA3F5VkBGubdsqgi9zZHoaXhoC8Jq+0JtXLgLLgv6Elx0aXgGtRwQZNvKy/h5NR6Is4Wj36yjL5NzwK5U/Q==",
+  "dgSpecHash": "NEQGiewzmOtiqIKm0ae27M5Tc0RtZnXVOJ/wbfE85mkgeIqdR49l0VUfgDr7Fc6VKuHtSPjii0WRmzcMQMEFKw==",
   "success": true,
   "projectFilePath": "C:\\Users\\Martin Johansson\\source\\repos\\MartinWebApp\\MartinWebApp\\MartinWebApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\jquery\\3.6.0\\jquery.3.6.0.nupkg.sha512",
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.jquery.unobtrusive.ajax\\3.2.6\\microsoft.jquery.unobtrusive.ajax.3.2.6.nupkg.sha512"
+  ],
   "logs": []
 }

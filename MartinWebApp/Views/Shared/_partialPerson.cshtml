@@ -4,15 +4,7 @@
 @model MartinWebApp.Models.Person
 <div>
     <p>
-        @Model.Name, @Model.PhoneNumber, @Model.City
-
-        @using (Html.BeginForm("PeopleDelete", "Home", FormMethod.Post, new { id = "deleteForm" }))
-        {
-            <input type="hidden" value=@Model.Name name="name" />
-            <input type="hidden" value=@Model.PhoneNumber name="phonenumber" />
-            <input type="hidden" value=@Model.City name="city" />
-            <input type="submit" value="Delete" />
-        }
+        <b>@Model.GetID()</b>, @Model.Name, @Model.PhoneNumber, @Model.City
     </p>
     
 </div>

@@ -7,6 +7,7 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
+    
 </head>
 <body>
     <div>
@@ -20,16 +21,18 @@
                     <li><a asp-area="" asp-controller="Fever" asp-action="FeverCheck">Fever</a></li>
                     <li><a asp-area="" asp-controller="Guessing" asp-action="GuessingGame">GuessingGame</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="People">People</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="PeopleAjax">PeopleAjax</a></li>
                 </ul>
             </nav>
         </header>
         @RenderBody()
-        <hr/>
+        <hr />
         <footer>
             <p>&copy; @DateTime.Now.Day/@DateTime.Now.Month @DateTime.Now.Year Martin Johansson</p>
         </footer>
     </div>
     
+    @RenderSection("Scripts", required: false)
 </body>
 
 </html>

@@ -1,0 +1,5 @@
+﻿<h4>Partial view</h4>
+@foreach (var item in MartinWebApp.Models.PeopleViewModel.peopleResult)
+{
+    <partial name="_partialPerson" model="item" />
+}
