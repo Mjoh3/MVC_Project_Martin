@@ -1,0 +1,48 @@
+﻿@{
+    ViewData["Title"] = "PeopleAjax";
+}
+<div>
+    <h2>People with ajax functions</h2>
+    <div id="responseMessages"></div>
+    <br />
+    <label for="idInputLabel">Enter ID:</label>
+    <input id="idInput" type="number" />
+    <input type="button" onclick="getCarByID()" value="Get by ID" />
+    <input type="button" onclick="deleteCarByID()" value="Delete by ID" />
+    <input type="button" onclick="getAllPersons()" value="Get all persons" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+    </script>
+    <script>
+
+        function getAllPersons() {
+            $.get("/Home/GetAllPersons", null, function (data) { $("#PersonList").html(data); })
+                .done(function () {
+                    document.getElementById('responseMessages').innerHTML = "Showing all people";
+                });
+        }
+        function getCarByID() {
+            var inputID = document.getElementById('idInput').value;
+            $.post("/Home/GetPersonsByID", { id: inputID }, function (data) { $("#PersonList").html(data); })
+                .done(function () {
+                    document.getElementById('responseMessages').innerHTML = "You have found a person with id " + document.getElementById('idInput').value;
+                })
+                .fail(function () {
+                    document.getElementById('responseMessages').innerHTML = "Could not find person with id " + document.getElementById('idInput').value;
+                });
+
+        }
+        function deleteCarByID() {
+            var inputID = document.getElementById('idInput').value;
+            $.post("/Home/DeletePersonsByID", { id: inputID }, function (data) { $("#PersonList").html(data); })
+                .done(function () {
+                    document.getElementById('responseMessages').innerHTML = "You have deleted the person with id " + document.getElementById('idInput').value;
+                })
+                .fail(function () {
+                    document.getElementById('responseMessages').innerHTML = "Could not find person with id " + document.getElementById('idInput').value;
+                });
+
+        }
+    </script>
+    <div id="PersonList"></div>
+</div>

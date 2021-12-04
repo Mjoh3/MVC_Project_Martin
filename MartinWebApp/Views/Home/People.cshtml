@@ -3,11 +3,14 @@
 *@
 @model MartinWebApp.Models.PeopleViewModel
 @{
-    ViewData["Title"] = "PeopleIndex";
+    ViewData["Title"] = "People";
 }
-<h1>People Index</h1>
+<h1>People</h1>
+
+
 <h2>Search People</h2>
-<form asp-controller="People" asp-action="PeopleSearch" method="post">
+@using (Html.BeginForm("PeopleSearch", "Home", FormMethod.Post, new { id = "searchForm" }))
+{
     <label>Name:</label>
     <input type="text" name="name" />
     <label>Tele:</label>
@@ -16,10 +19,11 @@
     <input type="text" name="city" />
 
     <input type="submit" value="Search" />
-</form>
+}
 
 <h2>Add Person</h2>
-<form asp-controller="People" asp-action="PeopleIndex" method="post">
+@using (Html.BeginForm("People", "Home", FormMethod.Post, new { id = "addForm" }))
+{
     <label>Name:</label>
     <input type="text" name="name" />
     <label>Tele:</label>
@@ -28,13 +32,13 @@
     <input type="text" name="city" />
 
     <input type="submit" value="Add" />
-</form>
+}
 @if (ViewBag.ErrorMess != null)
 {
     <p>@ViewBag.ErrorMess</p>
 
 }
-<h2>All people</h2>
+<h2>Results</h2>
 <table>
     @foreach (var p in MartinWebApp.Models.PeopleViewModel.peopleResult)
     {
@@ -42,7 +46,23 @@
             <td>Name: @p.Name</td>
             <td>Tele: @p.PhoneNumber</td>
             <td>City: @p.City</td>
+            <td>
+
+                @using (Html.BeginForm("PeopleDelete", "Home", FormMethod.Post, new { id = "deleteForm" }))
+                {
+                    <input type="hidden" value=@p.Name name="name" />
+                    <input type="hidden" value=@p.PhoneNumber name="phonenumber" />
+                    <input type="hidden" value=@p.City name="city" />
+                    <input type="submit" value="Delete" />
+                }
+
+            </td>
         </tr>
 
     }
 </table>
+<h4>Partial view</h4>
+@foreach (var item in MartinWebApp.Models.PeopleViewModel.peopleResult)
+{
+    <partial name="_partialPerson" model="item" />
+}
