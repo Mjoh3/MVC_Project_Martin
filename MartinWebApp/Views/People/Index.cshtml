@@ -1,0 +1,18 @@
+﻿@model IEnumerable<MartinWebApp.Models.Persona> 
+@{
+    ViewData["Title"] = "List of people";
+}
+<h1>List of people from database</h1>
+<table>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>Name: @p.Name</td>
+            <td>Tele: @p.PhoneNumber</td>
+            <td>City: @p.Cityname</td>
+            <td>Country: @p.Countryname</td>
+            <td>Language: @p.Languagename</td>
+        </tr>
+
+    }
+</table>
