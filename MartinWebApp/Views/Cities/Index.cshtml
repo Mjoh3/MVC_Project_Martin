@@ -1,0 +1,16 @@
+﻿
+@model IEnumerable<MartinWebApp.Models.City>
+@{
+    ViewData["Title"] = "List of Cities";
+}
+<h1>List of cities from database</h1>
+<table>
+    @foreach (var p in Model)
+    {
+    <tr>
+        <td>Id: @p.Id</td>
+        <td>Name: @p.Name</td>
+        <td>CountryId: @p.CountryId</td>
+    </tr>
+    }
+</table>
