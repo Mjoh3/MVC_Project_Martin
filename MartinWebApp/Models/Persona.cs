@@ -19,5 +19,8 @@ namespace MartinWebApp.Models
         public string PhoneNumber { get; set; }
         
         public string Name { get; set; }
+
+
+        public ICollection<Persona_Language> Persona_Language { get; set; }
     }
 }

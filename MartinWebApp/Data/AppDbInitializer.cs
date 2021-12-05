@@ -104,7 +104,66 @@ namespace MartinWebApp.Data
                         },
                     });
                     context.SaveChanges();
+
                 }
+                if (!context.Languages.Any())
+                {
+                    context.Languages.AddRange(new List<Language>()
+                    {
+                        new Language()
+                        {
+
+                            Name = "Swedish"
+                        },
+                        new Language()
+                        {
+
+                            Name = "English"
+                        },
+                        new Language()
+                        {
+
+                            Name = "Spanish"
+                        },
+                    });
+                    context.SaveChanges();
+
+                }
+                if (!context.Personas_Languages.Any())
+                {
+                    context.Personas_Languages.AddRange(new List<Persona_Language>()
+                    {
+                        new Persona_Language()
+                        {
+                            PersonaId=1,
+                            LanguageId=1
+                        },
+                        new Persona_Language()
+                        {
+                            PersonaId=1,
+                            LanguageId=2
+                        },
+                        new Persona_Language()
+                        {
+                            PersonaId=2,
+                            LanguageId=2
+                        },
+                        new Persona_Language()
+                        {
+                            PersonaId=3,
+                            LanguageId=2
+                        },
+                        new Persona_Language()
+                        {
+                            PersonaId=2,
+                            LanguageId=3
+                        },
+
+                    });
+                    context.SaveChanges();
+
+                }
+
             }
         }
     } 

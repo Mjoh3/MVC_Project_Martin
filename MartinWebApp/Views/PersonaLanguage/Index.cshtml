@@ -1,0 +1,16 @@
+﻿@model IEnumerable<MartinWebApp.Models.Persona_Language>
+@{
+    ViewData["Title"] = "List of Persona_Language";
+}
+<h1>List of personaLanguagesfrom database</h1>
+<table>
+    @foreach (var p in Model)
+    {
+        <tr>
+            <td>LanguageId: @p.LanguageId</td>
+            <td>PersonaId: @p.PersonaId</td>
+
+
+        </tr>
+    }
+</table>
