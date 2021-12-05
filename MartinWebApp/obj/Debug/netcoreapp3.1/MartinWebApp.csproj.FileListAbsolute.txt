@@ -85,3 +85,5 @@ C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\bin\Debug\netco
 C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\obj\Debug\netcoreapp3.1\Razor\Views\People\Index.cshtml.g.cs
 C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Cities\Index.cshtml.g.cs
 C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Countries\Index.cshtml.g.cs
+C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Languages\Index.cshtml.g.cs
+C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\obj\Debug\netcoreapp3.1\Razor\Views\PersonaLanguage\Index.cshtml.g.cs
