@@ -1,0 +1,16 @@
+﻿
+@model IEnumerable<MartinWebApp.Models.Country>
+@{
+    ViewData["Title"] = "List of Countries";
+}
+<h1>List of countries from database</h1>
+<table>
+    @foreach (var p in Model)
+    {
+    <tr>
+        <td>Id: @p.Id</td>
+        <td>Name: @p.Name</td>
+
+    </tr>
+    }
+</table>

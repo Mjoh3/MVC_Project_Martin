@@ -18,42 +18,93 @@ namespace MartinWebApp.Data
                 context.Database.EnsureCreated();
 
 
+                if (!context.Countries.Any())
+                {
+                    context.Countries.AddRange(new List<Country>()
+                    {
+                        new Country()
+                        {
+                            
+                            Name = "Sweden"
+                        },
+                        new Country()
+                        {
+                            Name = "United Kingdom"
+                        },
+                        new Country()
+                        {
+                            
+                            Name = "Spain"
+                        }
+                    }); ;
+                    context.SaveChanges();
+                }
+
+                if (!context.Cities.Any())
+                {
+                    context.Cities.AddRange(new List<City>()
+                    {
+                        new City()
+                        {
+                            
+                            Name = "Stockholm",
+                            CountryId=1
+                        },
+                        new City()
+                        {
+                            
+                            Name = "Malmö",
+                            CountryId=1
+                        },
+                        new City()
+                        {
+                            
+                            Name = "Liverpool",
+                            CountryId=2
+                        },
+                        new City()
+                        {
+                            
+                            Name = "Birmingham",
+                            CountryId=2
+                        },
+                        new City()
+                        {
+                            
+                            Name = "Malaga,", 
+                            CountryId=3
+                        }
+                    }); 
+                    context.SaveChanges();
+                }
                 if (!context.People.Any())
                 {
                     context.People.AddRange(new List<Persona>()
                     {
                         new Persona()
                         {
-                            Name = "Juan",
-                            Countryname = "Mexico",
-                            Languagename="Spanish",
-                            Cityname="Hermosillo",
-                            PhoneNumber="02020202"
-
+                            
+                            Name = "Lennart",
+                            PhoneNumber="080111183",
+                            CityId=1
                         },
                         new Persona()
                         {
-                            Name = "Cici",
-                            Countryname = "Romania",
-                            Languagename="Romanian",
-                            Cityname="Sebes",
-                            PhoneNumber="04060202"
-
+                            
+                            Name = "Hannah",
+                            PhoneNumber="034441185",
+                            CityId=4
                         },
                         new Persona()
                         {
-                            Name = "Ulrich",
-                            Countryname = "Germany",
-                            Languagename="German",
-                            Cityname="Hannover",
-                            PhoneNumber="05065502"
-
-                        }
-
+                            
+                            Name = "Maria",
+                            PhoneNumber="055590902",
+                            CityId=5
+                        },
                     });
                     context.SaveChanges();
                 }
-                
             }
         }
     } 

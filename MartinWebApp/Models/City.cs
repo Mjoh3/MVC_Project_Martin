@@ -7,17 +7,15 @@ using System.Threading.Tasks;
 
 namespace MartinWebApp.Models
 {
-    public class Persona
+    public class City
     {
         [Key]
         public int Id { get; set; }
-        
-        public int? CityId { get; set; }
-        [ForeignKey("CityId")]
-        public City City { get; set; }
-        
-        public string PhoneNumber { get; set; }
-        
         public string Name { get; set; }
+        public ICollection<Persona> Inhabitants { get; set; }
+        
+        public int CountryId { get; set; }
+        [ForeignKey("CountryId")]
+        public Country Country { get; set; }
     }
 }

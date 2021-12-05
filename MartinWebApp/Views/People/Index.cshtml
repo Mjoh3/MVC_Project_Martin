@@ -7,11 +7,10 @@
     @foreach (var p in Model)
     {
         <tr>
+            <td>Id: @p.Id</td>
             <td>Name: @p.Name</td>
             <td>Tele: @p.PhoneNumber</td>
-            <td>City: @p.Cityname</td>
-            <td>Country: @p.Countryname</td>
-            <td>Language: @p.Languagename</td>
+            <td>CityId: @p.CityId</td>
         </tr>
 
     }

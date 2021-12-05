@@ -20,10 +20,22 @@ namespace MartinWebApp.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             
+            modelBuilder.Entity<Persona>()
+                 .HasOne(pe => pe.City)
+                 .WithMany(ci => ci.Inhabitants)
+                 .HasForeignKey(pe => pe.CityId);
+
+            modelBuilder.Entity<City>()
+                .HasOne(ci => ci.Country)
+                .WithMany(co => co.Cities)
+                .HasForeignKey(ci => ci.CountryId);
+          
+
         }
         public DbSet<Persona> People { get; set; }
        
-        
+        public DbSet <City> Cities { get; set; }
+        public DbSet <Country> Countries { get; set; }
         
     }
 

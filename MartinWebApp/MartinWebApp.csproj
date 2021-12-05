@@ -5,6 +5,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20211204191914_change.cs" />
+    <Compile Remove="Migrations\20211204191914_change.Designer.cs" />
+    <Compile Remove="Migrations\20211204192430_change.cs" />
+    <Compile Remove="Migrations\20211204192430_change.Designer.cs" />
+    <Compile Remove="Migrations\20211204194101_fornkey.cs" />
+    <Compile Remove="Migrations\20211204194101_fornkey.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="wwwroot\" />
   </ItemGroup>
 
