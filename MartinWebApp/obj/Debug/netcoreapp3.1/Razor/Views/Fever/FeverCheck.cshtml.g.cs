@@ -12,8 +12,15 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
+#nullable restore
+#line 5 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\_ViewImports.cshtml"
+using Microsoft.AspNetCore.Identity;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b722814a66e0d08d0478146530247a3101fec0b1", @"/Views/Fever/FeverCheck.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"e42fb08e7ce2edc7db02210b9299a5c086668841", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b22a00661d241bf740cd3ecd8c082193e663d567", @"/Views/_ViewImports.cshtml")]
     public class Views_Fever_FeverCheck : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Fever", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -54,7 +61,7 @@ namespace AspNetCore
 #line hidden
 #nullable disable
             WriteLiteral("<h1>Fever check</h1>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b722814a66e0d08d0478146530247a3101fec0b14035", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b722814a66e0d08d0478146530247a3101fec0b14244", async() => {
                 WriteLiteral("\r\n    <label>Temperature</label>\r\n    <input type=\"number\" name=\"tempC\" />\r\n    <input type=\"submit\" value=\"Create\" />\r\n");
             }
             );

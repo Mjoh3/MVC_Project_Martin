@@ -1,17 +1,64 @@
-﻿
-@model IEnumerable<MartinWebApp.Models.Language>
+﻿@using MartinWebApp.Models;
+
+@model DbViewModel
 @{
-    ViewData["Title"] = "List of Languages";
+    ViewData["Title"] = "List of languages";
 }
-<h1>List of languages from database</h1>
-<table>
-    @foreach (var p in Model)
+@inject UserManager<ApplicationUser> UserManager;
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    
+    <h2>Add Language</h2>
+    <form asp-controller="Languages" asp-action="AddLanguage">
+        <label>Language:</label>
+        <input type="text" name="name" />
+        <input type="submit" value="Add" />
+    </form>
+
+    <h2>Edit Languages</h2>
+    <form asp-controller="Languages" asp-action="EditLanguage">
+        <select name="id">
+            @foreach (var p in Model.Languages)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <label>Name:</label>
+        <input type="text" name="name" />
+
+        <input type="submit" value="Edit" />
+
+    </form>
+    <h2>Delete Languages</h2>
+    <form asp-controller="Languages" asp-action="DeleteLanguage">
+        <select name="id">
+            @foreach (var p in Model.Languages)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+
+        <input type="submit" value="Delete" />
+    </form>
+    @if (ViewBag.ErrorMess != null)
     {
-        <tr>
-            <td>Id: @p.Id</td>
-            <td>Name: @p.Name</td>
+        <p>@ViewBag.ErrorMess</p>
 
-
-        </tr>
     }
-</table>
+    <h1>List of languages from database</h1>
+    <table>
+        @foreach (var p in Model.Languages)
+        {
+            <tr>
+                <td>Id: @p.Id</td>
+                <td>Name: @p.Name</td>
+
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h2>Access Denied</h2>
+}

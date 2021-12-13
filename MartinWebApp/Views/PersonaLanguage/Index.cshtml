@@ -1,16 +1,76 @@
-﻿@model IEnumerable<MartinWebApp.Models.Persona_Language>
+﻿@using MartinWebApp.Models;
+@using Microsoft.AspNetCore.Identity;
+@model DbViewModel
+
 @{
     ViewData["Title"] = "List of Persona_Language";
 }
-<h1>List of personaLanguagesfrom database</h1>
-<table>
-    @foreach (var p in Model)
-    {
-        <tr>
-            <td>LanguageId: @p.LanguageId</td>
-            <td>PersonaId: @p.PersonaId</td>
+@inject UserManager<ApplicationUser> UserManager;
+@if (User.Identity.IsAuthenticated)
+{
+    <h2>Add Person Language connection</h2>
+    <form asp-controller="PersonaLanguage" asp-action="AddPersonaLanguage">
+
+        <label>Persona:</label>
+
+        <select name="persona">
+            @foreach (var p in Model.Personas)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <label>Language:</label>
+        <select name="language">
+            @foreach (var l in Model.Languages)
+            {
+                <option value=@l.Id>@l.Id : @l.Name</option>
+            }
+        </select>
+        <input type="submit" value="Add" />
+
+    </form>
 
 
-        </tr>
-    }
-</table>
+    <h2>Delete Persona Language connection</h2>
+    <form asp-controller="PersonaLanguage" asp-action="DeletePersonaLanguage">
+        <label>Persona:</label>
+
+        <select name="persona">
+            @foreach (var p in Model.Personas)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <label>Language:</label>
+        <select name="language">
+            @foreach (var l in Model.Languages)
+            {
+                <option value=@l.Id>@l.Id : @l.Name</option>
+            }
+        </select>
+
+        <input type="submit" value="Delete" />
+        @if (ViewBag.ErrorMess != null)
+        {
+            <p>@ViewBag.ErrorMess</p>
+
+        }
+    </form>
+    <h1>List of people_langage connection from database</h1>
+    <table>
+        @foreach (var p in Model.Persona_Languages)
+        {
+            <tr>
+                <td>PersonaId: @p.PersonaId</td>
+                <td>LanguageId: @p.LanguageId</td>
+
+
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h2>Access Denied</h2>
+}

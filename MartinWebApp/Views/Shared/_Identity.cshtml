@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@using MartinWebApp.Models;
+
+@inject UserManager<ApplicationUser> UserManager;
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>Hello @UserManager.GetUserName(User)</p>
+    <form asp-controller="Account" asp-action="Logout"><button>Logout</button></form>
+}
+else
+{
+
+    <a asp-area="" asp-controller="Account" asp-action="Login"><p>Login</p></a>
+    <a asp-area="" asp-controller="Account" asp-action="Register"><p>Register</p></a>
+}
+

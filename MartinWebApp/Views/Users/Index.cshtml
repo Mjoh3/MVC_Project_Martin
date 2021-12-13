@@ -1,0 +1,27 @@
+﻿@model IEnumerable<MartinWebApp.Models.ApplicationUser>
+@{
+    ViewData["Title"] = "List of users";
+}
+
+<h1>List of people from database</h1>
+<table>
+    @foreach (var p in Model)
+    {
+    <tr>
+
+        <td>First Name: @p.FirstName</td>
+        <td>Last Name: @p.LastName</td>
+        <td>E-mail: @p.Email</td>
+        <td>Birthday: @p.Birthday</td>
+        
+    </tr>
+
+    }
+</table>
+<select name="dog-names" id="dog-names">
+    
+    @foreach (var p in Model)
+    {
+        <option value="@p.Id">@p.Email</option>
+    }
+</select>
