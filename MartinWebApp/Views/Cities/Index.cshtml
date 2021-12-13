@@ -1,17 +1,82 @@
-﻿
-@model IEnumerable<MartinWebApp.Models.City>
+﻿@using MartinWebApp.Models;
+@model DbViewModel
 @{
-    ViewData["Title"] = "List of Cities";
+    ViewData["Title"] = "List of people";
 }
-<h1>List of cities from database</h1>
-<table>
-    @foreach (var p in Model)
-    {
-    <tr>
-        <td>Id: @p.Id</td>
-        <td>Name: @p.Name</td>
-        <td>CountryId: @p.CountryId</td>
+@inject UserManager<ApplicationUser> UserManager;
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <form asp-controller="Account" asp-action="Logout"><button>Logout</button></form>
+    <h2>Add City</h2>
+    <form asp-controller="Cities" asp-action="AddCity">
+        <label>City:</label>
+        <input type="text" name="name" />
 
-    </tr>
+        <label>Country:</label>
+
+        <select name="country">
+            @foreach (var p in Model.Countries)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <input type="submit" value="Add" />
+
+    </form>
+
+    <h2>Edit City</h2>
+    <form asp-controller="Cities" asp-action="EditCity">
+        <select name="id">
+            @foreach (var p in Model.Cities)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <label>City:</label>
+        <input type="text" name="name" />
+
+        <label>Country:</label>
+
+        <select name="country">
+            @foreach (var p in Model.Countries)
+            {
+                <option value=@p.Id>@p.Name</option>
+            }
+        </select>
+        <input type="submit" value="Edit" />
+
+    </form>
+    <h2>Delete City</h2>
+    <form asp-controller="Cities" asp-action="DeleteCity">
+        <select name="id">
+            @foreach (var p in Model.Cities)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+
+        <input type="submit" value="Delete" />
+    </form>
+    @if (ViewBag.ErrorMess != null)
+    {
+        <p>@ViewBag.ErrorMess</p>
+
     }
-</table>
+    <h1>List of cities from database</h1>
+    <table>
+        @foreach (var p in Model.Cities)
+        {
+            <tr>
+                <td>Id: @p.Id</td>
+                <td>Name: @p.Name</td>
+                <td>Country: @p.CountryId</td>
+
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h2>Access Denied</h2>
+}

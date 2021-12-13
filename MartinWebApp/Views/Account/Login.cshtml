@@ -1,0 +1,40 @@
+﻿@using MartinWebApp.Data.ViewModels;
+@model LoginVM;
+@{
+    ViewData["Title"] = "Login to your account";
+}
+
+<div>
+    <div>
+        
+            <h4>Login to your account</h4>
+            <form asp-action="Login" method="post">
+                <table>
+                    <tr>
+                        <td>Email</td>
+                        <td><input asp-for="EmailAddress" /></td>
+                        <td><span asp-validation-for="EmailAddress"></span></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Passwird</td>
+
+                        <td><input asp-for="Password" /></td>
+                        <td><span asp-validation-for="Password"></span></td>
+                        
+
+                    </tr>
+                    <tr>
+                        <td><input type="submit" value="Log in" /></td>
+                        <td>
+                            @if (TempData["Error"] != null)
+                            {
+                                <span>Unforunatly - @TempData["Error"]</span>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        
+    </div>
+</div>

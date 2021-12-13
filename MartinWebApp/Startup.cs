@@ -1,7 +1,10 @@
 using MartinWebApp.Data;
+using MartinWebApp.Models;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -31,6 +34,10 @@ namespace MartinWebApp
                 options.Cookie.IsEssential = true;
             });
             services.AddDbContext<AppDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddIdentity<ApplicationUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>();
+            services.AddMemoryCache();
+            //services.AddSession();
+            services.AddAuthentication(options => { options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme; });
             services.AddMvc();
         }
 
@@ -44,13 +51,17 @@ namespace MartinWebApp
             app.UseStaticFiles();
             app.UseRouting();
             app.UseSession();
-            
+            //authentication
+
+            app.UseAuthentication();
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(name: "default", pattern: "{controller=Home}/{action=Index}/{id?}");
             });
             AppDbInitializer.Seed(app);
-            
+            AppDbInitializer.SeedUsersAndRolesAsync(app).Wait();
         }
     }
 }

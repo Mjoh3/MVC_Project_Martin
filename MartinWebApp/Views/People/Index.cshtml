@@ -1,17 +1,85 @@
-﻿@model IEnumerable<MartinWebApp.Models.Persona> 
+﻿@using MartinWebApp.Models;
+@using Microsoft.AspNetCore.Identity;
+@model DbViewModel
 @{
     ViewData["Title"] = "List of people";
 }
-<h1>List of people from database</h1>
-<table>
-    @foreach (var p in Model)
+@inject UserManager<ApplicationUser> UserManager;
+@if (User.Identity.IsAuthenticated)
+{
+    
+    <h2>Add Person</h2>
+    <form asp-controller="People" asp-action="AddPersona">
+        <label>Name:</label>
+        <input type="text" name="name" />
+        <label>Tele:</label>
+        <input type="text" name="phonenumber" />
+        <label>City:</label>
+
+        <select name="cities">
+            @foreach (var p in Model.Cities)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <input type="submit" value="Add" />
+
+    </form>
+
+    <h2>Edit Person</h2>
+    <form asp-controller="People" asp-action="EditPersona">
+        <select name="id">
+            @foreach (var p in Model.Personas)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <label>Name:</label>
+        <input type="text" name="name" />
+        <label>Tele:</label>
+        <input type="text" name="phonenumber" />
+        <label>City:</label>
+
+        <select name="cities">
+            @foreach (var p in Model.Cities)
+            {
+                <option value=@p.Id>@p.Name</option>
+            }
+        </select>
+        <input type="submit" value="Edit" />
+
+    </form>
+    <h2>Delete Person</h2>
+    <form asp-controller="People" asp-action="DeletePersona">
+        <select name="id">
+            @foreach (var p in Model.Personas)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+
+        <input type="submit" value="Delete" />
+    </form>
+    @if (ViewBag.ErrorMess != null)
     {
-        <tr>
-            <td>Id: @p.Id</td>
-            <td>Name: @p.Name</td>
-            <td>Tele: @p.PhoneNumber</td>
-            <td>CityId: @p.CityId</td>
-        </tr>
+        <p>@ViewBag.ErrorMess</p>
 
     }
-</table>
+    <h1>List of people from database</h1>
+    <table>
+        @foreach (var p in Model.Personas)
+        {
+            <tr>
+                <td>Id: @p.Id</td>
+                <td>Name: @p.Name</td>
+                <td>Tele: @p.PhoneNumber</td>
+                <td>CityId: @p.CityId</td>
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h2>Access Denied</h2>
+}

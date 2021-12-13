@@ -1,17 +1,63 @@
-﻿
-@model IEnumerable<MartinWebApp.Models.Country>
+﻿@using MartinWebApp.Models;
+@model DbViewModel
 @{
-    ViewData["Title"] = "List of Countries";
+    ViewData["Title"] = "List of countries";
 }
-<h1>List of countries from database</h1>
-<table>
-    @foreach (var p in Model)
+@inject UserManager<ApplicationUser> UserManager;
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <form asp-controller="Account" asp-action="Logout"><button>Logout</button></form>
+    <h2>Add Country</h2>
+    <form asp-controller="Countries" asp-action="AddCountry">
+        <label>Country:</label>
+        <input type="text" name="name" />
+        <input type="submit" value="Add" />
+    </form>
+
+    <h2>Edit Country</h2>
+    <form asp-controller="Countries" asp-action="EditCountry">
+        <select name="id">
+            @foreach (var p in Model.Countries)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+        <label>Country:</label>
+        <input type="text" name="name" />
+
+        <input type="submit" value="Edit" />
+
+    </form>
+    <h2>Delete Country</h2>
+    <form asp-controller="Countries" asp-action="DeleteCountry">
+        <select name="id">
+            @foreach (var p in Model.Countries)
+            {
+                <option value=@p.Id>@p.Id : @p.Name</option>
+            }
+        </select>
+
+        <input type="submit" value="Delete" />
+    </form>
+    @if (ViewBag.ErrorMess != null)
     {
-    <tr>
-        <td>Id: @p.Id</td>
-        <td>Name: @p.Name</td>
+        <p>@ViewBag.ErrorMess</p>
 
-
-    </tr>
     }
-</table>
+    <h1>List of languages from database</h1>
+    <table>
+        @foreach (var p in Model.Countries)
+        {
+            <tr>
+                <td>Id: @p.Id</td>
+                <td>Name: @p.Name</td>
+
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <h2>Access Denied</h2>
+}

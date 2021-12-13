@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "aposj0fko7vPeLbygpRntCOK+BeudChGhAjXSwRhz3H7sr6jCqH8MsZKBrUCKQIHdMs3zWFk7lVa1d6/X5OzVQ==",
+  "dgSpecHash": "W+eluYTtnyN/1eCIuyMqK+ZO2YbGlp6q2jNsTzNO8BmsK0NWW4FdcdE1f/lfMb1v3sLH/Lo0tCCMdVyc5AmyDQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\Martin Johansson\\source\\repos\\MartinWebApp\\MartinWebApp\\MartinWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\jquery\\3.6.0\\jquery.3.6.0.nupkg.sha512",
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.21\\microsoft.aspnetcore.cryptography.internal.3.1.21.nupkg.sha512",
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.21\\microsoft.aspnetcore.cryptography.keyderivation.3.1.21.nupkg.sha512",
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\3.1.21\\microsoft.aspnetcore.identity.entityframeworkcore.3.1.21.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.1\\microsoft.bcl.asyncinterfaces.1.1.1.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.1\\microsoft.bcl.hashcode.1.1.1.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
@@ -23,6 +26,8 @@
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.configuration.binder\\3.1.21\\microsoft.extensions.configuration.binder.3.1.21.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\3.1.21\\microsoft.extensions.dependencyinjection.3.1.21.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\3.1.21\\microsoft.extensions.dependencyinjection.abstractions.3.1.21.nupkg.sha512",
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.identity.core\\3.1.21\\microsoft.extensions.identity.core.3.1.21.nupkg.sha512",
+    "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.identity.stores\\3.1.21\\microsoft.extensions.identity.stores.3.1.21.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.logging\\3.1.21\\microsoft.extensions.logging.3.1.21.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\3.1.21\\microsoft.extensions.logging.abstractions.3.1.21.nupkg.sha512",
     "C:\\Users\\Martin Johansson\\.nuget\\packages\\microsoft.extensions.options\\3.1.21\\microsoft.extensions.options.3.1.21.nupkg.sha512",
