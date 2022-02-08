@@ -20,6 +20,13 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
 #nullable restore
+#line 7 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\_ViewImports.cshtml"
+using React.AspNet;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
 using MartinWebApp.Models;
 
@@ -27,7 +34,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"713772641e7eaad5a263628a6163910c5f282a30", @"/Views/Cities/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b22a00661d241bf740cd3ecd8c082193e663d567", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a7504a1e95add0889225062b05e2a529de00b1c", @"/Views/_ViewImports.cshtml")]
     public class Views_Cities_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DbViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Account", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -79,7 +86,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a305688", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a305880", async() => {
                 WriteLiteral("<button>Logout</button>");
             }
             );
@@ -99,7 +106,7 @@ using MartinWebApp.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    <h2>Add City</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a307371", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a307563", async() => {
                 WriteLiteral("\r\n        <label>City:</label>\r\n        <input type=\"text\" name=\"name\" />\r\n\r\n        <label>Country:</label>\r\n\r\n        <select name=\"country\">\r\n");
 #nullable restore
 #line 18 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
@@ -110,7 +117,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a308077", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a308269", async() => {
 #nullable restore
 #line 20 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
                                Write(p.Id);
@@ -176,7 +183,7 @@ using MartinWebApp.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
             WriteLiteral("    <h2>Edit City</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3011941", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3012133", async() => {
                 WriteLiteral("\r\n        <select name=\"id\">\r\n");
 #nullable restore
 #line 30 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
@@ -187,7 +194,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3012516", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3012708", async() => {
 #nullable restore
 #line 32 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
                                Write(p.Id);
@@ -243,7 +250,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3015332", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3015524", async() => {
 #nullable restore
 #line 43 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
                                Write(p.Name);
@@ -300,7 +307,7 @@ using MartinWebApp.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    <h2>Delete City</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3018902", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3019094", async() => {
                 WriteLiteral("\r\n        <select name=\"id\">\r\n");
 #nullable restore
 #line 52 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
@@ -311,7 +318,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3019477", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "713772641e7eaad5a263628a6163910c5f282a3019669", async() => {
 #nullable restore
 #line 54 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Cities\Index.cshtml"
                                Write(p.Id);

@@ -13,6 +13,13 @@ namespace AspNetCore
     using Microsoft.AspNetCore.Mvc.Rendering;
     using Microsoft.AspNetCore.Mvc.ViewFeatures;
 #nullable restore
+#line 7 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\_ViewImports.cshtml"
+using React.AspNet;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
 using MartinWebApp.Models;
 
@@ -27,7 +34,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d626deb33e8c9afa283d5b0bdf65203bcc10f413", @"/Views/PersonaLanguage/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b22a00661d241bf740cd3ecd8c082193e663d567", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a7504a1e95add0889225062b05e2a529de00b1c", @"/Views/_ViewImports.cshtml")]
     public class Views_PersonaLanguage_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DbViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "PersonaLanguage", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -77,7 +84,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("    <h2>Add Person Language connection</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f4134956", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f4135148", async() => {
                 WriteLiteral("\r\n\r\n        <label>Persona:</label>\r\n\r\n        <select name=\"persona\">\r\n");
 #nullable restore
 #line 17 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
@@ -88,7 +95,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f4135589", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f4135781", async() => {
 #nullable restore
 #line 19 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
                                Write(p.Id);
@@ -144,7 +151,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f4138362", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f4138554", async() => {
 #nullable restore
 #line 26 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
                                Write(l.Id);
@@ -210,7 +217,7 @@ using Microsoft.AspNetCore.Identity;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
             WriteLiteral("    <h2>Delete Persona Language connection</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f41312287", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f41312479", async() => {
                 WriteLiteral("\r\n        <label>Persona:</label>\r\n\r\n        <select name=\"persona\">\r\n");
 #nullable restore
 #line 39 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
@@ -221,7 +228,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f41312917", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f41313109", async() => {
 #nullable restore
 #line 41 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
                                Write(p.Id);
@@ -277,7 +284,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f41315691", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d626deb33e8c9afa283d5b0bdf65203bcc10f41315883", async() => {
 #nullable restore
 #line 48 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\PersonaLanguage\Index.cshtml"
                                Write(l.Id);
