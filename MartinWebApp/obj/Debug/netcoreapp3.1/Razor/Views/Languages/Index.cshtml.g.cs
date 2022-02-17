@@ -20,6 +20,13 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
 #nullable restore
+#line 7 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\_ViewImports.cshtml"
+using React.AspNet;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Languages\Index.cshtml"
 using MartinWebApp.Models;
 
@@ -27,7 +34,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a", @"/Views/Languages/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b22a00661d241bf740cd3ecd8c082193e663d567", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a7504a1e95add0889225062b05e2a529de00b1c", @"/Views/_ViewImports.cshtml")]
     public class Views_Languages_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DbViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Languages", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -79,7 +86,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    <h2>Add Language</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a5193", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a5385", async() => {
                 WriteLiteral("\r\n        <label>Language:</label>\r\n        <input type=\"text\" name=\"name\" />\r\n        <input type=\"submit\" value=\"Add\" />\r\n    ");
             }
             );
@@ -100,7 +107,7 @@ using MartinWebApp.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
             WriteLiteral("    <h2>Edit Languages</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a7034", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a7226", async() => {
                 WriteLiteral("\r\n        <select name=\"id\">\r\n");
 #nullable restore
 #line 21 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Languages\Index.cshtml"
@@ -111,7 +118,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a7614", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a7806", async() => {
 #nullable restore
 #line 23 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Languages\Index.cshtml"
                                Write(p.Id);
@@ -176,7 +183,7 @@ using MartinWebApp.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    <h2>Delete Languages</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a11552", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a11744", async() => {
                 WriteLiteral("\r\n        <select name=\"id\">\r\n");
 #nullable restore
 #line 35 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Languages\Index.cshtml"
@@ -187,7 +194,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a12133", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2a5148fc109f9b3a6e8d374cafc2c316cd2f8b1a12325", async() => {
 #nullable restore
 #line 37 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Languages\Index.cshtml"
                                Write(p.Id);

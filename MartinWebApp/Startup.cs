@@ -13,7 +13,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using Microsoft.AspNetCore.Http;
+using JavaScriptEngineSwitcher.V8;
+using JavaScriptEngineSwitcher.Extensions.MsDependencyInjection;
+using React.AspNet;
 namespace MartinWebApp
 {
     public class Startup
@@ -38,6 +41,9 @@ namespace MartinWebApp
             services.AddMemoryCache();
             //services.AddSession();
             services.AddAuthentication(options => { options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme; });
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddReact();
+            services.AddJsEngineSwitcher(options => options.DefaultEngineName = V8JsEngine.EngineName).AddV8();
             services.AddMvc();
         }
 
@@ -48,6 +54,7 @@ namespace MartinWebApp
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseReact(config => { });
             app.UseStaticFiles();
             app.UseRouting();
             app.UseSession();

@@ -21,6 +21,6 @@ namespace MartinWebApp.Models
         public string Name { get; set; }
 
 
-        public ICollection<Persona_Language> Persona_Language { get; set; }
+        public IEnumerable<Persona_Language> Persona_Language { get; set; }
     }
 }

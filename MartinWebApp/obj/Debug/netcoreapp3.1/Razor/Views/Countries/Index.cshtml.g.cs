@@ -20,6 +20,13 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
 #nullable restore
+#line 7 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\_ViewImports.cshtml"
+using React.AspNet;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 1 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Countries\Index.cshtml"
 using MartinWebApp.Models;
 
@@ -27,7 +34,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"85de7f0079e58c92f31994c397181f308f5c48e6", @"/Views/Countries/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b22a00661d241bf740cd3ecd8c082193e663d567", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"5a7504a1e95add0889225062b05e2a529de00b1c", @"/Views/_ViewImports.cshtml")]
     public class Views_Countries_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<DbViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-controller", "Account", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -79,7 +86,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
             WriteLiteral("    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e65727", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e65919", async() => {
                 WriteLiteral("<button>Logout</button>");
             }
             );
@@ -99,7 +106,7 @@ using MartinWebApp.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    <h2>Add Country</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e67413", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e67605", async() => {
                 WriteLiteral("\r\n        <label>Country:</label>\r\n        <input type=\"text\" name=\"name\" />\r\n        <input type=\"submit\" value=\"Add\" />\r\n    ");
             }
             );
@@ -120,7 +127,7 @@ using MartinWebApp.Models;
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n");
             WriteLiteral("    <h2>Edit Country</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e69251", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e69443", async() => {
                 WriteLiteral("\r\n        <select name=\"id\">\r\n");
 #nullable restore
 #line 20 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Countries\Index.cshtml"
@@ -131,7 +138,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e69831", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e610023", async() => {
 #nullable restore
 #line 22 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Countries\Index.cshtml"
                                Write(p.Id);
@@ -196,7 +203,7 @@ using MartinWebApp.Models;
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n    <h2>Delete Country</h2>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e613770", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e613963", async() => {
                 WriteLiteral("\r\n        <select name=\"id\">\r\n");
 #nullable restore
 #line 34 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Countries\Index.cshtml"
@@ -207,7 +214,7 @@ using MartinWebApp.Models;
 #line hidden
 #nullable disable
                 WriteLiteral("                ");
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e614351", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "85de7f0079e58c92f31994c397181f308f5c48e614544", async() => {
 #nullable restore
 #line 36 "C:\Users\Martin Johansson\source\repos\MartinWebApp\MartinWebApp\Views\Countries\Index.cshtml"
                                Write(p.Id);
