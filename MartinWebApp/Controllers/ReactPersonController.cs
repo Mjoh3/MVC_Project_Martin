@@ -69,45 +69,53 @@ namespace MartinWebApp.Controllers
             return Json(json);
         }
 
-        [HttpGet]
-        public JsonResult DBToJSON()
-        {
-            DbViewModel vm = new DbViewModel();
-            vm.Cities = _context.Cities.ToList();
-            vm.Countries = _context.Countries.ToList();
-            vm.Languages = _context.Languages.ToList();
-            vm.Personas = _context.People.ToList();
-            vm.Persona_Languages.ToList();
-            for (int i=0; i<vm.Personas.Count(); i++)
-            {
-                vm.Personas.ElementAt(i).City = vm.Cities.First(x => x.Id == vm.Personas.ElementAt(i).CityId);
-                vm.Personas.ElementAt(i).City.Country = vm.Countries.First(x => x.Id == vm.Personas.ElementAt(i).City.CountryId);
-                vm.Personas.ElementAt(i).Persona_Language = vm.Persona_Languages.Where(x => x.PersonaId == vm.Personas.ElementAt(i).Id);
-                for (int j=0; j<vm.Personas.Count(); j++)
-                {
-                    vm.Personas.ElementAt(i).Persona_Language.ElementAt(j).Language =
-                        vm.Languages.First(x => x.Id == vm.Personas.ElementAt(i).Persona_Language.ElementAt(j).LanguageId);
-                }
-                
-            }
-            var json = JsonConvert.SerializeObject(vm);
-            return Json(json);
-        }
-        
-
 
         [HttpPost]
-        public JsonResult AddPersona(string name, string phonenumber, string cities)
+        public IActionResult AddPerson(string name, string phonenumber, string cities)
         {
-            _context.People.Add(new Persona()
-            {
-                Name = name,
-                PhoneNumber = phonenumber,
-                CityId = int.Parse(cities)
-            });
-            _context.SaveChanges();
 
-            return Json("true");
+            if (name.Length > 1 && phonenumber.Length > 1)
+            {
+                var newperson = new Persona()
+                {
+                    Name = name,
+                    PhoneNumber = phonenumber,
+                    CityId = int.Parse(cities)
+                };
+                _context.People.Add(newperson);
+                _context.SaveChanges();
+                //return StatusCode(200);
+                return Json(newperson);
+            }
+            else
+            {
+
+                return StatusCode(404);
+            }
+        }
+        [HttpPost]
+        public IActionResult DeletePersona(string id)
+        {
+            
+            var persona = new Persona() { Id = int.Parse(id) };
+            if (!(_context.People.Any(p => p.Id == int.Parse(id))))
+            {
+                
+                return StatusCode(404);
+            }
+            else
+            {
+                _context.Personas_Languages.RemoveRange(_context.Personas_Languages.Where(x => x.PersonaId == int.Parse(id)));
+                _context.People.Attach(persona);
+                _context.People.Remove(persona);
+                
+                _context.SaveChanges();
+                return StatusCode(200);
+            }
+            
+
+
+            
         }
     }
 }
