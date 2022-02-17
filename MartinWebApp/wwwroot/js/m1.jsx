@@ -1,60 +1,50 @@
 ﻿
-class ShowPeople extends React.Component {
-    
-    render() {
-        return (
-            <div className="pshow">SJ</div>
-        )
-    }
-}
-function CreatePeopl() {return <h4>HOVA</h4>}
-class CreatePeople extends React.Component {
-    render() {
-        return (<div className="pcreate">createpeople</div>);
-    }
-}
-class PersonDetails extends React.Component {
-    render() {
-        return (<div className="pdetails">details</div>);
-    }
-}
-const baseURL = "ReactPerson/GetAllPeople";
 class GetRequest extends React.Component {
     constructor(props) {
         super(props);
-
+        
         this.state = {
-           persondetail: null,
+            name: '', tele: '', city: '-1', country: '-1', responsemessage: '',
+            persondetail: null,
             namelist: [],
             citylist: [],
             languagelist: [],
             planguagelist: [],
-            countrylist:[]
+            countrylist: [],
+            personid:'',
+            sorted: false
+
         };
+        this.getFromDB();
+        
     }
     
     componentDidMount() {
+        
+    }
+    
+    getFromDB() {
         // Simple GET request using axios
         axios.get('ReactPerson/GetAllPeople')
             .then((response) => {
-                
+
                 var persondata = JSON.parse(response.data);
-                var namelist = new Array(persondata.length);               
-                for (let i = 0; i < persondata.length; i++) {                    
-                    namelist[i] = { Name: persondata[i].Name, Id: persondata[i].Id, CityId: persondata[i].CityId, PhoneNumber: persondata[i].PhoneNumber };
+                var plist = new Array(persondata.length);
+                for (let i = 0; i < persondata.length; i++) {
+                    plist[i] = { Name: persondata[i].Name, Id: persondata[i].Id, CityId: persondata[i].CityId, PhoneNumber: persondata[i].PhoneNumber };
                 }
-                this.setState({ namelist });                             
+                this.setState({ namelist:plist });
             }
-        );
+            );
         axios.get('ReactPerson/GetAllCities')
             .then((response) => {
 
                 var getdata = JSON.parse(response.data);
                 var citylist = new Array(getdata.length);
                 for (let i = 0; i < getdata.length; i++) {
-                    citylist[i] = { Name: getdata[i].Name, Id: getdata[i].Id, CountryId: getdata[i].CountryId};
+                    citylist[i] = { Name: getdata[i].Name, Id: getdata[i].Id, CountryId: getdata[i].CountryId };
                 }
-                console.log(citylist);
+                
                 this.setState({ citylist });
             }
             );
@@ -68,7 +58,7 @@ class GetRequest extends React.Component {
                 }
                 this.setState({ languagelist });
             }
-        );
+            );
         axios.get('ReactPerson/GetAllPersona_Languages')
             .then((response) => {
 
@@ -79,7 +69,7 @@ class GetRequest extends React.Component {
                 }
                 this.setState({ planguagelist });
             }
-        );
+            );
         axios.get('ReactPerson/GetAllCountries')
             .then((response) => {
 
@@ -88,11 +78,13 @@ class GetRequest extends React.Component {
                 for (let i = 0; i < getdata.length; i++) {
                     countrylist[i] = { Name: getdata[i].Name, Id: getdata[i].Id };
                 }
-                
+
                 this.setState({ countrylist });
             }
             );
     }
+
+
     getLanguagesWithPerson(persons, languages, planguages) {
         var languagestring = 'Languages: | ';
         for (let i = 0; i < planguages.length; i++) {
@@ -115,7 +107,7 @@ class GetRequest extends React.Component {
             }
         }
 
-        return 'NOT FOUND';
+        return 'NOT FOUND.';
     }
     showDetalis(persons, cities, countries, languages, planguages) {
         
@@ -123,77 +115,199 @@ class GetRequest extends React.Component {
         var details = persons.Id + ' Name: ' + persons.Name + ' City: ' + this.getCityName(persons.CityId, cities,countries) + ' Phone: ' + persons.PhoneNumber;
         var languagestring = this.getLanguagesWithPerson(persons, languages, planguages);
 
-        this.setState({ details,languagestring });
+        this.setState({ details,languagestring,personid: persons.Id });
         
     }
-    
+    deleteperson(){
+        if (this.anypersonwithid()==true) {
+            $.post("/ReactPerson/DeletePersona", { id: this.state.personid });
 
+            this.deletefromlistbyid();
+            
+            this.setState({ personid: '-1' });
+            this.setState({
+                details:'', languagestring:''
+            });
+            console.log(this.state.namelist);
+        }
+        else {
+            this.setState({ responsemessage: 'could not delete' });
+        }
+    }
+    sortperson() {
+        var sortedlist = this.state.namelist.sort((a, b) => a.Name.localeCompare(b.Name));
+        this.setState({namelist: sortedlist,sorted:true});
+    }
+    sortpersonbyid() {
+        var sortedlist = this.state.namelist.sort((a, b) => a.Id>b.Id);
+        this.setState({ namelist: sortedlist,sorted:false });
+    }
+    
+    deletefromlistbyid() {
+        
+        var mylist = this.state.namelist;
+        for (var i = 0; i < this.state.namelist.length; i++) {
+
+            if (mylist[i].Id.toString() == this.state.personid) {
+
+                mylist.splice(i, 1);
+            }
+
+        }
+        this.setState({ namelist: mylist });
+    }
+    addpersontolist(p) {
+        var mylist = this.state.namelist;
+        mylist.push({ Name: p.name, Id: p.id, CityId: p.cityId, PhoneNumber: p.phoneNumber });
+        
+        this.setState({ namelist: mylist });
+        if (this.state.sorted) {
+            this.sortperson();
+        }
+    }
+    anypersonwithid() {
+        var mylist = this.state.namelist;
+        for (var i = 0; i < this.state.namelist.length; i++) {
+
+            if (mylist[i].Id.toString() == this.state.personid) {
+
+                return true;
+            }
+
+        }
+        return false;
+    }
+    updateName = event => {
+        this.setState({ name: event.target.value });
+    }
+    updateTele = event => {
+        this.setState({ tele: event.target.value });
+    }
+    updateCity = event => {
+        this.setState({ city: event.target.value });
+    }
+    updateCountry = event => {
+        this.setState({ country: event.target.value });
+    }
+
+
+    addPersonToDb = event => {
+        event.preventDefault();
+
+        var inputID = this.state.name;
+        console.log(this.state.name);
+        console.log(this.state.city);
+        console.log(this.state.tele);
+        if (this.state.name.length > 0 &&
+            this.state.tele.length > 0 &&
+            this.state.city != '-1' &&
+            this.state.city != null &&
+            this.state.tele != null &&
+            this.state.name != null) {
+            this.setState({ responsemessage: '' });
+            $.post("/ReactPerson/AddPerson", { name: this.state.name, cities: this.state.city, phonenumber: this.state.tele }, function (data) {
+                
+                console.log(data);
+                this.addpersontolist(data);
+            }.bind(this)
+
+            );
+             
+
+        }
+        else {
+            this.setState({ responsemessage: 'could not add' });
+        }
+    }
+    
     render() {
         
-       
+        let iteritems = this.state.namelist.map(item => {
+            
+            return (
+
+                <tr>
+                    <td>{item.Name}</td>
+                    <td><button onClick={() => this.showDetalis(item, this.state.citylist, this.state.countrylist, this.state.languagelist, this.state.planguagelist)}>Details</button></td>
+                </tr>)
+        });
+
+        let countryoptions = this.state.countrylist.map(item => {
+            return (<option value={item.Id.toString()}>{item.Name}</option>)
+        });
+        let cityoptions = this.state.citylist.map(item => {
+            if (this.state.country == item.CountryId) {
+                return (
+
+                    <option value={item.Id.toString()}>{item.Name}</option>
+
+                )
+            }
+        });
+
         return (
+            <div>
             <div className="card text-center m-3">
                 <h5 className="card-header">Showing people</h5>
                 <div className="card-body">
-                    People:
-                    <table border="1">
-                        {this.state.namelist.map(item => {
-                            return <tbody>
-                                <tr>
-                                    <td>{item.Name}</td>
-                                    <td><button onClick={() => this.showDetalis(item, this.state.citylist, this.state.countrylist, this.state.languagelist,this.state.planguagelist)}>Details</button></td>
-                                </tr></tbody>
-                        })}
-                    </table>
+                   
+                    <table className="table table-striped"><tbody>
+                        
+                            {iteritems}
+                           
+                        </tbody></table>
+                        {this.state.sorted ?
+                            <button onClick={() => this.sortpersonbyid()}>unsort</button> :
+                            <button onClick={() => this.sortperson()}>sort by name </button>
+                        }
+                        
                     
-                    <p>{this.state.details}</p>
-                    <p>{this.state.languagestring}</p>
                     
                     
                 </div>
             </div>
+                <div className="card text-center m-3">
+                    <h5 className="card-header">Details</h5>
+                    <div className="card-body">
+                    </div>
+                    <p>{this.state.details}</p>
+                    <p>{this.state.languagestring}</p>
+                    {this.anypersonwithid() ? <button variant="primary" size="sm" onClick={() => this.deleteperson()}>DELETE PERSON</button> : <></>}
+                </div>
+                <div className="card text-center m-3">
+                    <h5 className="card-header">Add a person</h5>
+                    <div className="card-body">
+                        <form onSubmit={this.addPersonToDb}>
+                        <label>Enter Name:
+                            <input type="text" name="name" onChange={this.updateName} />
+                    
+                        </label>
+                        <label>Enter City:
+                            <select name="countries" onChange={this.updateCountry}>
+                                <option value="-1">pick a country</option>
+                                {countryoptions}
+
+                            </select>
+                            <select name="cities" onChange={this.updateCity}>
+                                <option value="-1">pick a city</option>
+                                {cityoptions}
+                        
+                                </select>
+                        </label>
+                        <label>Enter Telephone number:
+                            <input type="text" name="tele" onChange={this.updateTele}/>
+                        </label>
+                        <button type="submit">Add</button>
+                        <p>{this.state.responsemessage}</p>
+                        </form>
+                        </div></div>
+                </div>
         );
     }
 }
-class PostRequest extends React.Component{
-    state = { name: '' }
-    handleChange = event => {
-        this.setState({ name: event.target.value });
-    }
-    handleChange = event => {
-        this.setState({ name: event.target.value });
-    }
-    handleSubmit = event => {
-        event.preventDefault();
-        
-        const user = {
-            name: this.state.name
-        };
 
-        axios.post(`ReactPerson/GetAllPersona_Languages`, { user })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
-    }
 
-    render() {
-        return (
-            <form onSubmit={this.handleSubmit}>
-                <label>Enter your name:
-                    <input type="text" name="name" onChange={this.handleChange}/>
-                </label>
-                <label>Enter your Tele:
-                    <input type="text" />
-                </label>
-                <label>Enter your City:
-                    <input type="text" />
-                </label>
-                <button type="submit">Add</button>
-            </form>
-        )
-    }
-}
+
 ReactDOM.render(<GetRequest />, document.getElementById('pd'));
-ReactDOM.render(<PostRequest />, document.getElementById('ps'));
-ReactDOM.render(<CreatePeopl />, document.getElementById('pc'));
+
+
