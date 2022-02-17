@@ -107,7 +107,7 @@ class GetRequest extends React.Component {
             }
         }
 
-        return 'NOT FOUND';
+        return 'NOT FOUND.';
     }
     showDetalis(persons, cities, countries, languages, planguages) {
         
